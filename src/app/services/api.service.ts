@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { error } from 'console';
-import { catchError, map, Observable, of, throwError } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { ICategory, IProduct } from '../interfaces/api-interfaces';
-// import { ApiPaths } from '../readOnlyElements/readOnlyElements';
 
 @Injectable({
   providedIn: 'root'

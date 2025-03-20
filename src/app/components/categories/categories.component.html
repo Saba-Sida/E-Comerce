@@ -1,0 +1,5 @@
+<div class="container">
+    <div *ngFor="let rootCategory of categories ?? []" (click)="expandCategory($event)">
+        {{rootCategory.name}}
+    </div>
+</div>
