@@ -1,5 +1,18 @@
 <div class="container">
     <div *ngFor="let rootCategory of categories ?? []" (click)="expandCategory($event)">
         {{rootCategory.name}}
+        <div [hidden]="true" class="subContainerLevel1" *ngIf="(rootCategory.subCategories?.length ?? 0) > 0">
+            <button (click)="colapseCategory($event)">Close</button>
+            <div *ngFor="let firstLevelSubCategory of rootCategory.subCategories ?? []">
+                {{firstLevelSubCategory.name}}
+                <div [hidden]="true" class="subContainerLevel2" *ngIf="(firstLevelSubCategory.subCategories?.length ?? 0) > 0">
+                    <button (click)="colapseCategory($event)">close</button>
+                    <div
+                        *ngFor="let secondLevelSubCategory of firstLevelSubCategory.subCategories ?? []">
+                        {{secondLevelSubCategory.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

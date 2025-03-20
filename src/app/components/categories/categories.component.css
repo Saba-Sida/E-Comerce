@@ -5,6 +5,8 @@
 }
 .container > div{
     background-color: green;
+    border: 2px solid red;
+    margin: 10px;
 }
 .container > div:hover{
     background-color: yellow;

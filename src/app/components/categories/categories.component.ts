@@ -28,13 +28,22 @@ export class CategoriesComponent implements OnInit {
 
 
   expandCategory(event: Event): void{
-    let div = event.target as HTMLElement;
+    let rooCategory = event.target as HTMLElement;
     
-    let newElement = document.createElement("div");
+    
 
-    newElement.innerHTML = "Jaba";
+    try{
+      (rooCategory.querySelector(".subContainerLevel1") as HTMLElement).hidden = false;
+    }
+    catch{
+      console.log("No subcategories");
+    }
 
-    div.appendChild(newElement);
-    // last, continue later
+    // last, continue later around here
+  }
+
+  colapseCategory(event: Event): void{
+    // on mouse click on closing button    
+    alert("The category div will colapse");
   }
 }
