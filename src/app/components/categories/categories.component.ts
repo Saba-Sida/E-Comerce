@@ -18,23 +18,8 @@ export class CategoriesComponent implements OnInit {
   constructor(public anyToAny: AnyToAnyService){}
 
   ngOnInit(): void {
-
-    this.anyToAny.categories.subscribe(data => {
-      this.categories = data;
-      console.log("From categories");
-      console.log(data);
-    });
+    this.anyToAny.categories.subscribe(data => this.categories = data);
   }
 
 
-  expandCategory(event: Event): void{
-    let div = event.target as HTMLElement;
-    
-    let newElement = document.createElement("div");
-
-    newElement.innerHTML = "Jaba";
-
-    div.appendChild(newElement);
-    // last, continue later
-  }
 }

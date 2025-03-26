@@ -1,5 +1,25 @@
-<div class="container">
-    <div *ngFor="let rootCategory of categories ?? []" (click)="expandCategory($event)">
-        {{rootCategory.name}}
+<div class="container" style="border: 2px solid blue">
+    <div *ngFor="let rootCategory of categories">
+        <div>
+            <button style="background-color: red;">
+                > {{rootCategory.name}}
+            </button>
+            <button *ngIf="((rootCategory.subCategories ?? []).length != 0)" style="background-color: orange;">>
+                {{rootCategory.name}} itself</button>
+            <div *ngFor="let childCategory of rootCategory.subCategories">
+                <div>
+                    <button style="background-color: yellow; margin-left: 15px;">
+                        >> {{childCategory.name}}
+                    </button>
+                    <button *ngIf="((childCategory.subCategories ?? []).length != 0)" style="background-color: greenyellow;">>> {{childCategory.name}} itself</button>
+                    <div>
+                        <button *ngFor="let grandChildCategory of childCategory.subCategories"
+                            style="background-color: green; margin-left: 20px;">
+                            >>> {{grandChildCategory.name}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
